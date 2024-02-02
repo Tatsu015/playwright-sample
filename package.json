@@ -1,0 +1,19 @@
+{
+  "name": "playwright-sample",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Tatsu015/playwright-sample.git"
+  },
+  "author": "Tatsu015",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Tatsu015/playwright-sample/issues"
+  },
+  "homepage": "https://github.com/Tatsu015/playwright-sample#readme"
+}
