@@ -1,10 +1,19 @@
 import { test, expect } from '@playwright/test';
 
+
+test.beforeEach(async ({ page }) => {
+  await page.route('https://playwright.mock/', route => route.fulfill({
+    status: 200, // ステータスコード
+    body: 'Hello, world!', // モックレスポンスのボディ
+  }));
+})
+
 test('has title', async ({ page }) => {
-  await page.goto('https://playwright.dev/');
+  await page.goto('https://playwright.mock/');
 
   // Expect a title "to contain" a substring.
-  await expect(page).toHaveTitle(/Playwright/);
+  await expect(page.locator('body')).toHaveText(/Hello, world!/);
+  await page.close();
 });
 
 test('get started link', async ({ page }) => {
@@ -15,4 +24,6 @@ test('get started link', async ({ page }) => {
 
   // Expects page to have a heading with the name of Installation.
   await expect(page.getByRole('heading', { name: 'Installation' })).toBeVisible();
+
+  await page.close();
 });
